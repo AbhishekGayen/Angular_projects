@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <div>
+            <h1>Inside Dashboard Featured</h1>
+            {{message}}
+            <span>
+                {{receivedData}}
+            </span>
+            <div>
+                <input [(ngModel)]="empName" placeholder="Please enter the employee name"/>
+                <input [ngModel]="empLocation" placeholder="Please enter the location"/>
+                <!-- <input type="number" [ngModel]="managerId" placeholder="Please enter manager id"/> -->
+                <button (click)="submitData()">Go</button>
+            </div>
+            <div>
+                <span>Displaying {{empName}}</span>
+                <span>{{empLocation}}</span>
+                <!-- <span>{{managerId}}</span> -->
+            </div>
+        </div>
+    </body>
+</html>
