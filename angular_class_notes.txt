@@ -74,7 +74,7 @@ Backend Service can be invoked via http client. http we have all the methods lik
 
 Observable - it is producer that emit(publish) data time to time.
 once the data pusblished then we need some consumer (Subscriber) to consume that data
-The reason we have to subscribe data in asynchronus way.
+The reason we have to subscribe data in asynchronous way.
 
 -----------------------------
 
