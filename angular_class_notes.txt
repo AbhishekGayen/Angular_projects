@@ -79,3 +79,18 @@ The reason we have to subscribe data in asynchronous way.
 -----------------------------
 
 [(ngModel)] -> achieve 2 way data binding
+[ngModel] -> oneway data binding, we can achieve
+    the 2 way data binding using a method named canplaythrough
+-----------------------------
+pipe - helps to format data and display, but the original data would not be impacted.
+we can create own custom pipe as well.
+yes no pipe -> when we will be passing true from backend wanted to display 'Yes'
+and when we will be having false we are going to display 'No';
+
+-----------------------------
+Angular Forms:
+
+1. ReactiveForm : more structured way we can using FormGroup/FormControl
+      classes to achieve the complex validation. This Synchronous.
+2. Template driven Form - 2 way data binding [(ngModel)] apply this and we can bind automatically
+    Form validation happen automatically by the template. This is Asynchronous.

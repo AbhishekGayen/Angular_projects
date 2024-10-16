@@ -1,15 +1,20 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {FormsModule} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink, RouterLinkActive} from "@angular/router";
 import {DashboardService} from "./dasboard.service";
 import {HttpClientModule} from "@angular/common/http";
+import {DatePipe, DecimalPipe, LowerCasePipe, NgIf, UpperCasePipe} from "@angular/common";
+import {YesNoPipe} from "../shared/yes-no.pipe";
+import {CustomDatePipe} from "../shared/custom-date.pipe";
 
 @Component({
   selector: 'dash-board',
   standalone: true,
   templateUrl: './dashboard.component.html',
   imports: [
-    FormsModule, HttpClientModule
+    FormsModule, HttpClientModule, UpperCasePipe,
+    LowerCasePipe, DecimalPipe, YesNoPipe, CustomDatePipe,
+    DatePipe, NgIf, RouterLink, RouterLinkActive
   ],
   providers: [DashboardService],
   styleUrl: './dashboard.component.css'
@@ -22,6 +27,8 @@ export class DashboardComponent implements OnInit {
   empName: string | undefined;
   empLocation: string | undefined;
   managerId: number = 0;
+  flag: boolean = false;
+  startDate: string = '2023-09-23';
 
   constructor(private route: ActivatedRoute,
               private dashboardService: DashboardService) {
@@ -55,6 +62,7 @@ export class DashboardComponent implements OnInit {
   }
 
   submitData() {
+    this.flag = true;
     console.log('Received Data : '+this.empName + ' , '+this.empLocation+' , '+this.managerId);
     const reqParam = {
       empName: this.empName,

@@ -6,17 +6,28 @@
             <span>
                 {{receivedData}}
             </span>
-            <div>
+            <div *ngIf="!flag">
                 <input [(ngModel)]="empName" placeholder="Please enter the employee name"/>
-                <input [ngModel]="empLocation" placeholder="Please enter the location"/>
-                <!-- <input type="number" [ngModel]="managerId" placeholder="Please enter manager id"/> -->
-                <button (click)="submitData()">Go</button>
+                <input [(ngModel)]="empLocation"
+                       placeholder="Please enter the location"/>
+                <input type="number" [(ngModel)]="managerId" placeholder="Please enter manager id"/>
+                <button [disabled]="flag" (click)="submitData()">Go</button>
             </div>
             <div>
-                <span>Displaying {{empName}}</span>
-                <span>{{empLocation}}</span>
-                <!-- <span>{{managerId}}</span> -->
+                <span>Displaying {{empName | uppercase}}</span>
+                <br/>
+                <span>{{empLocation | lowercase}}</span>
+                <br/>
+                <span>{{managerId | number}}</span>
+                <br/>
+                <span>{{flag | yesNo}}</span>
+                <br/>
+                <span>The Start Date : {{startDate | customDate}}</span>
+                <br/>
+                <span>The Start Date : {{startDate | date : 'dd/MM/yyyy'}}</span>
             </div>
         </div>
+
+        <a routerLink="login" routerLinkActive="active">Login Form</a>
     </body>
 </html>

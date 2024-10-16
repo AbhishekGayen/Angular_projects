@@ -1,0 +1,21 @@
+<!--Template Driven Form-->
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <div>
+    <label for="userName">UserName</label>
+    <input type="text" id="userName" name="userName" ngModel required/>
+    <div *ngIf="myForm.form.controls['userName']?.invalid
+                && myForm.form.controls['userName']?.touched">
+      User name is required!!
+    </div>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" ngModel required/>
+    <div *ngIf="myForm.form.controls['password']?.invalid
+                && myForm.form.controls['password']?.touched">
+      Password is required!!
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>
