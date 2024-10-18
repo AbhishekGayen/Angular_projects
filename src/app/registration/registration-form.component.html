@@ -1,0 +1,23 @@
+<form [formGroup]="userFrom" (ngSubmit)="onSubmit()">
+  <!--Name Field-->
+  <div>
+    <label form="name">Name</label>
+    <input id="name" formControlName="name"/>
+    <div *ngIf="name()?.invalid && userFrom.get('name')?.touched">
+      <small *ngIf="name()?.errors?.required">Name is required field!</small>
+      <small *ngIf="name()?.errors?.minLength">Minimum 5 Character.</small>
+    </div>
+  </div>
+
+  <!--Email Field-->
+  <div>
+    <label form="email">Email</label>
+    <input id="email" formControlName="email"/>
+    <div *ngIf="email()?.invalid && userFrom.get('email')?.touched">
+      <small *ngIf="email()?.errors?.required">Email is required field!</small>
+<!--      <small *ngIf="email()?.errors?.email">Invalid email Format!</small>-->
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="userFrom.invalid">Submit</button>
+</form>
